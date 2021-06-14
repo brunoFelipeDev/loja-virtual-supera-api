@@ -15,7 +15,7 @@ spring:
       max-request-size: 20MB
       enabled: true
   datasource:
-    url: jdbc:postgresql://161.35.99.211:5432/loja_virtual
+    url: jdbc:postgresql://localhost:5432/loja_virtual
     username: postgres
     password: my3ntr3g44dm1n5q1
     driver-class-name: org.postgresql.Driver
