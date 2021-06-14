@@ -1,0 +1,52 @@
+server:
+  error:
+    include-message: always
+    include-stacktrace: never
+    include-binding-errors: always
+  port: 8989
+#  context-path: /
+  servlet:
+    context-path: /
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+      enabled: true
+  datasource:
+    url: jdbc:postgresql://161.35.99.211:5432/loja_virtual
+    username: postgres
+    password: my3ntr3g44dm1n5q1
+    driver-class-name: org.postgresql.Driver
+    platform: org.hibernate.dialect.PostgreSQLDialect
+  jpa:
+    open-in-view: true
+    show-sql: false
+    properties:
+      hibernate:
+        order_inserts: true
+        order_updates: true 
+        jdbc:
+          batch_size: 50
+  jackson:
+    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+
+logging:
+  level:
+    root: INFO
+    org.springframework.security: INFO
+    
+flyway:
+  baseline-on-migrate: true
+
+hystrix:
+  command:
+        default:
+          execution:
+            timeout:
+              enabled: false
+            isolation:
+              thread:
+                timeoutInMilliseconds: 50000
+  shareSecurityContext: true
