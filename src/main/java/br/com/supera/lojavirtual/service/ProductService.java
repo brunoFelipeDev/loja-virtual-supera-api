@@ -15,6 +15,9 @@ public class ProductService {
 	@Autowired
 	private ProductRepositoryJpa productRepository;
 
+	public List<ProductDto> getProductsDto() {
+		return ProductDto.to(productRepository.findAll());
+	}
 
 	public Product save(ProductDto productDto) {
 		Product product = from(productDto);
@@ -36,7 +39,7 @@ public class ProductService {
 		product.setImage(productDto.getImage());
 		product.setName(productDto.getName());
 		product.setPrice(productDto.getPrice());
-		productDto.setScore(productDto.getScore());
+		product.setScore(productDto.getScore());
 
 		return product;
 	}
